@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DSA Notes</title>
+        <style>
+            h1 {
+                text-align: center;
+            }
+            table td,
+            th {
+                text-align: center;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Data Structure and algorithm notes</h1>
+        <h1>Data Structure</h1>
+        <ol>
+            <li>Study of methods for organizing and storing data for solving problems.</li>
+            <li>Collection of variables in some specific order.</li>
+            <li>
+                <b>LDS VS NLDS</b>
+                <table>
+                    <tr>
+                        <th>Linear data Structure</th>
+                        <th>Non-Linear data Structure</th>
+                    </tr>
+                    <tr>
+                        <td>Adjacently Attached(linear fashion)</td>
+                        <td>Hierarchically Attached</td>
+                    </tr>
+                    <tr>
+                        <td>Single level</td>
+                        <td>Multiple level</td>
+                    </tr>
+                    <tr>
+                        <td>Easy</td>
+                        <td>Difficult</td>
+                    </tr>
+                    <tr>
+                        <td>Single run</td>
+                        <td>Multiple runs</td>
+                    </tr>
+                    <tr>
+                        <td>Memory is not utilised in efficient way.</td>
+                        <td>Memory is utilised in efficient way.</td>
+                    </tr>
+                    <tr>
+                        <td>ex. Array, stack, linked list</td>
+                        <td>ex. Tree, Graph</td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <h2><u>Array:</u></h2>
+                <ol>
+                    <li>It is used to store data of same type.</li>
+                    <li>contigous memory allocation</li>
+                    <li>datatype arrName[size]</li>
+                    <li>Random accessing: Any element with random index can be accessed.</li>
+                    <li>Easy retrieval</li>
+                    <li>Easy to use and understand</li>
+                    <li>Fixed nature(memory not in efficient way). If 4 elements in array of size 10, then 6 indice wasted.</li>
+                    <li>Insert/Delete issues.</li>
+                    <li>address(arr[i])= base address + size of element(bytes)[i-0]</li>
+                    <li>
+                        <u>address of 2D array:</u>
+                        <br />
+                        <i>rowwise</i>: base address + size(no. of cols*row index + col index);
+                        <br />
+                        <i>colwise</i>: base address + size(no. of rows*col index + row index);
+                    </li>
+                    <li>
+                        <u>Traversal operation:</u>
+                        <i>
+                            <pre>
+                            for(int i=0; i<=n-1;i++){
+                                printf(arr[i]);
+                            } 
+                        </pre
+                            >
+                        </i>
+                    </li>
+                    <li>
+                        <u>Insertion operation:</u>
+                        <pre>
+                        Best case: Insertion at end.
+                        Worst case: Insertion at start. (because then all elements have to be shifted to right by 1)
+                    </pre
+                        >
+                    </li>
+                    <li>
+                        <u>Deletion operation:</u>
+                        <pre>
+                        Best case: deletion at end.
+                        Worst case: deletion at start. (because then all elements have to be shifted to left by 1)
+                    </pre
+                        >
+                    </li>
+                    <li>
+                        <u>Search operation</u>
+                        <pre>
+                        Best case: got to be searched element at first.
+                        Worst case: got to be searched element at last.
+                        Worstest case: didn't get element in whole array. It's is a big issue if size of is large.
+                    </pre
+                        >
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <b>Array VS Linked lists</b>
+                <table>
+                    <tr>
+                        <th>Array</th>
+                        <th>Linked list</th>
+                    </tr>
+                    <tr>
+                        <td>Contigous memory location.</td>
+                        <td>Not, each node has a data and a pointer(which points to he address of another pointer.</td>
+                    </tr>
+                    <tr>
+                        <td>Random access</td>
+                        <td>Sequential access following node.</td>
+                    </tr>
+                    <tr>
+                        <td>Insertion and deletion takes more time.</td>
+                        <td>Insertion and deletion are fast.</td>
+                    </tr>
+                    <tr>
+                        <td>Fixed, static nature.</td>
+                        <td>Dynamic nature and changes are acceoted.</td>
+                    </tr>
+                    <tr>
+                        <td>Memory is not utilised in efficient way.</td>
+                        <td>Memory is utilised in efficient way.</td>
+                    </tr>
+                    <tr>
+                        <td>Types: 1D, 2D...multidimesional</td>
+                        <td>Type: single LL, double LL, circular LL</td>
+                    </tr>
+                    <tr>
+                        <td>Sequential representation.</td>
+                        <td>Linked Representation.</td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <h2><u>Linked Lists:</u></h2>
+                <ol>
+                    <li>Structures are used.</li>
+                    <li>Variable size.</li>
+                    <li>Insert: O(1)</li>
+                    <li>Search: O(n)</li>
+                    <li>
+                        <pre>
+                        struct node{
+                            int data;
+                            struct node* ptr;
+                        }
+                    </pre
+                        >
+                    </li>
+                    <li>
+                        <i
+                            ><u>Reallocating memory using malloc. <br /></u
+                        ></i>
+                        node * head=malloc(sizeof(node)); head->data->5(say); head->link->Null
+                    </li>
+                    <li>
+                        <i>head(10)->1,20->2,30->2,Null</i><br />
+                        head->data->1<br />
+                        head->link->20<br />
+                        head->link->data->2<br />
+                        head->link->link->20<br />
+                        head->link->link->data->3<br />
+                        head->link->link->link->30<br />
+                    </li>
+                    <li>
+                        <u>Traversal operation:</u>
+                        <pre>
+                    current=head;
+                    while(current!=NULL){
+                      printf(current->data);
+                      current= current->next;  
+                    }
+                    </pre
+                        >
+                    </li>
+                    <li>
+                        <u>Search operation:</u>
+                        <pre>
+                    current=head;
+                    while(current!=NULL){
+                        if(current->data==key){
+                            return current;
+                        }
+                        current= current->next;  
+                    }
+                    </pre
+                        >
+                    </li>
+                    <li>
+                        <u>Insertion operation</u>
+                        <ol>
+                            <i>head(10) -- 5,20 -- 2,30 -- 4,Null</i>
+                            <li>
+                                <i>Insert at beginning:O(1)<br /></i> new->next= head;( ,10 --5,20) <br />
+                                head= new;
+                            </li>
+                            <li>
+                                <i>Insert after a node:[O(n) in worst case, else O(indx)]<br /></i> Insert after 2,30(prev)<br />
+                                new->next= prev->next;<br />
+                                prev->next= new;
+                            </li>
+                            <li>
+                                <i>Insert at end: [O(n), and O(1) if tail pointer is given]<br /></i>
+                                last->next= new;
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <u>Deletion operation:</u>
+                        <ol>
+                            <i>head(10) -- 5,20 -- 2,30 -- 4,Null</i>
+                            <li>
+                                <i>Delete at beginning:<br /></i> del= head; <br />
+                                head= del->link;<br />
+                                free(del);
+                            </li>
+                            <li>
+                                <i>Delete after a node:</i> delete after 5,20(prev)<br />
+                                del=prev->next;<br />
+                                prev->next= del next;<br />
+                                free(del);
+                            </li>
+                            <li>
+                                <i>Delete at end:</i> del=prev->next;<br />
+                                prev->next = Null;<br />
+                                free(del);
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <h3><u>Doubly linked list:</u></h3>
+                <ol>
+                    <u>Insertion operation</u
+                    ><br />
+                    <i>Null,head(10) ,20 -- 10,5(20),30 -- 20,2(30),Null</i>
+                    <li>
+                        <i>Insert at beginning:<br /></i> new->next= head; <br />
+                        head->prev= new; <br />
+                        head= new;
+                    </li>
+                    <li>
+                        <i>Insert after a node:<br /></i> Insert after 10,5(30),30(temp)<br />
+                        new->next= temp->next;<br />
+                        temp->next->prev= new;<br />
+                        temp->next= new;<br />
+                        new->prev= temp;
+                    </li>
+                    <li>
+                        <i>Insert at end:<br /></i> last->next= new;<br />
+                        new->prev=last;
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <h3><u>Doubly linked list:</u></h3>
+                <ol>
+                    <u>Deletion operation</u
+                    ><br />
+                    <i>Null,head(10) ,20 -- 10,5(20),30 -- 20,2(30),Null</i>
+                    <li>
+                        <i>Delete at beginning:<br /></i> del=head;<br />
+                        head= del->next;<br />
+                        del->next->prev= null;<br />
+                        free(del);
+                    </li>
+                    <li>
+                        <i>Delete after a node:<br /></i> Delete after Null,head(10) ,20(temp)<br />
+                        del=temp->next;<br />
+                        del->next->prev=temp; <br />
+                        temp->next= del->next;<br />
+                        free(del);
+                    </li>
+                    <li>
+                        <i>Delete at end:<br /></i> (temp=previous one) <br />
+                        del=temp->next;<br />
+                        temp->next= null;<br />
+                        free(del);
+                    </li>
+                </ol>
+            </li>
+            <li></li>
+        </ol>
+    </body>
+</html>

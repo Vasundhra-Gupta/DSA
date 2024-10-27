@@ -1,0 +1,7 @@
+Infix-> operator in between(more human friendly)
+(more computer friend)
+Prefix-> operator in beginning
+Postfix-> operation at end
+
+Infix expression-> Postfix expression
+To evaluate a postfix expression.

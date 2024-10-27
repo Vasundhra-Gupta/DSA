@@ -1,0 +1,4 @@
+IN JS
+int arr= new int[10];
+when globally declared an array, all values initialise with 0;
+max size of array that can be defined is 10^6 inside the int main and 10^7 in global declaration.
