@@ -25,7 +25,6 @@ int merge(int arr[], int low, int mid, int high)
         k++;
     }
 
-
     while (j <= high)
     {
         temp[k] = arr[j++];
@@ -39,9 +38,7 @@ int merge(int arr[], int low, int mid, int high)
     for (int i = low; i <= high; i++)
     {
         arr[i] = temp[i-low];
-        cout<<arr[i]<<"\t";
     }
-    cout<<endl;
 }
 
 int mergeSort(int arr[], int low, int high)
@@ -63,6 +60,12 @@ int main()
 {
     int arr[] = {2, 3, 9, 7, 8, 4, 6};
     int n = sizeof(arr)/sizeof(arr[0]);
+
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<"\t";
+    }
+
+    cout<<endl;
     mergeSort(arr, 0, n-1);
 
     for(int i=0; i<n; i++){
