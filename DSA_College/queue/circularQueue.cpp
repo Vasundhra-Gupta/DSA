@@ -76,7 +76,7 @@ void Queue::showQueue()
         cout << endl;
     }
     else
-        cout << "Stack is empty" << endl;
+        cout << "Queue is empty" << endl;
 }
 
 int Queue:: enqueue(int x){

@@ -1,57 +1,114 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 
-class Tree
+class Node
 {
+public:
     int data;
-    Tree *parent;
-    Tree *left;
-    Tree *right;
-    Tree(int val)
+    Node *left;
+    Node *right;
+    Node(int val)
     {
         this->data = val;
-        this->parent = NULL;
         this->left = NULL;
         this->right = NULL;
     }
 };
 
-Tree *createTree(Tree *root, int arr[], int n)
+// Node *createTree(Node *root, int arr[], int n)
+// {
+//     for (int i = 0; i < n; i++)
+//     {
+//         Node *newNode = new Node(arr[i]);
+//         if (root == NULL)
+//         {
+//             root = newNode;
+//             return root;
+//         }
+//         if (root->left == NULL)
+//         {
+//             root->left = newNode;
+//             return root;
+//         }
+//         else
+//         {
+//             createTree(root->left, arr[i]);
+//         }
+//         if (root->right == NULL)
+//         {
+//             root->right = newNode;
+//             return root;
+//         }
+//         else
+//         {
+//             createTree(root->left, arr[i])
+//         }
+//         createTree(newNode, arr[i]);
+//     }
+//     return root;
+// }
+
+Node *createTree(Node *root)
 {
-    for (int i = 0; i < n; i++)
+    cout << "Enter data:" << endl;
+    int x;
+    cin >> x;
+    if (x == -1)
     {
-        Tree *newNode = new Tree(arr[i]);
-        if (root == NULL)
+        return NULL;
+    }
+    root = new Node(x);
+    cout << "Enter data to insert in left of " << x << endl;
+    root->left = createTree(root->left);
+    cout << "Enter data to insert in right of " << x << endl;
+    root->right = createTree(root->right);
+    return root;
+}
+
+Node *createTreeFromLevelOrder(Node *root)
+{
+    queue<Node *> q;
+    cout << "Enter data for root" << endl;
+    int rootData;
+    cin >> rootData;
+    if (rootData == -1)
+    {
+        return NULL;
+    }
+    // root->data = rootData;
+    root = new Node(rootData);
+    q.push(root);
+
+    while (!q.empty())
+    {
+        Node *temp = q.front();
+        q.pop();
+
+        cout << "Enter data to insert in left of " << temp->data << endl;
+        int leftData;
+        cin >> leftData;
+        if (leftData != -1)
         {
-            root = newNode;
-            return root;
+            temp->left = new Node(leftData);
+            q.push(temp->left);
         }
-        if (root->left == NULL)
+
+        cout << "Enter data to insert in right of " << temp->data << endl;
+        int rightData;
+        cin >> rightData;
+        if (rightData != -1)
         {
-            root->left = newNode;
-            newNode->parent = root;
-            return root;
+            temp->right = new Node(rightData);
+            q.push(temp->right);
         }
-        else
-        {
-            createTree(root->left, val);
-        }
-        if (root->right == NULL)
-        {
-            root->right = newNode;
-            newNode->parent = root;
-            return root;
-        }
-        else
-        {
-            createTree(root->left, val)
-        }
-        createTree(newNode, val);
     }
     return root;
 }
 int main()
 {
-    Tree *root = NULL;
+    Node *root = NULL;
+    // createTree(root);
+    root = createTreeFromLevelOrder(root);
     return 0;
 }
