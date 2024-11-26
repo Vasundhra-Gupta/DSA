@@ -31,14 +31,17 @@ public:
 int main()
 {
     Stack stack;
+    cout<<"Stack:"<<endl;
     stack.push(12);
     stack.push(24);
     stack.push(48);
     stack.push(13);
     stack.push(89);
     stack.showStack();
+    cout<<"Pop:"<<endl;
     stack.pop();
     stack.showStack();
+    cout<<"Pop:"<<endl;
     stack.pop();
     stack.showStack();
     return 0;

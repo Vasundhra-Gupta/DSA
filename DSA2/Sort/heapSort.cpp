@@ -40,6 +40,7 @@ void heapSort(int arr[], int n){
     for(int i= floor(n/2)-1; i>=0; i--){
         heapify(arr, n, i);
     }
+    cout<<"heapified"<<endl;
     printArray(arr, n);
     int size= n; //array size
     for(int i= 0 ; i<size; i++){
@@ -57,9 +58,12 @@ int main(){
     // for(int i= floor(n/2)-1; i>=0; i--){
     //     heapify(arr, n, i);
     // }
-    heapify(arr, n, 0);
-    printArray(arr,n);
+    // heapify(arr, n, 0);
+    // cout<<"Tree"<<endl;
+    // printArray(arr,n);
+
     heapSort(arr, n);
+    cout<<"Sorted List"<<endl;
     printArray(arr,n);
 
     return 0;

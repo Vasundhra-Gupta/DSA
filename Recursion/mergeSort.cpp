@@ -66,6 +66,8 @@ int main()
     }
 
     cout<<endl;
+
+    cout<<"After merge sort"<<endl;
     mergeSort(arr, 0, n-1);
 
     for(int i=0; i<n; i++){

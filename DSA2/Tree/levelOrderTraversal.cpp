@@ -37,6 +37,8 @@ Node *createTree(Node *root)
 // now to print as a tree , 1st appraoch is like we can use separator using NULL when a level finishes
 // and the other could be u store each level element in a data structure(like list of arrays)
 
+//take first nd print nd  push its left right, then again, then again!
+
 vector<vector<int>> levelOrderTraveral(Node *root)
 {
     vector<vector<int>> list;
