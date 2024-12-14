@@ -55,7 +55,9 @@ Node* removeNthNodeFromEnd(Node* head, int n){
 
 int main(){
     Node* head = NULL;
-    head = makeALinkedList(head);
+    int arr[] = {23, 45, 67, 89, 21}; 
+    int size =sizeof(arr)/sizeof(arr[0]);
+    head = makeALinkedList(head, arr, size);
     displayList(head);
     int n;
     cout<<"Enter the value of n:"<<endl;
